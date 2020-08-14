@@ -13,5 +13,19 @@
 
 <c:out value="${loginUser.name }" />さんログイン中
 <a href="/docoTsubu/Logout">ログアウト</a>
+<p><a href="/docoTsubu/Main">更新</a></p>
+<form action="/docoTsubu/Main" method="post">
+<input type="text" name="text">
+<input type="submit" value="つぶやく">
+</form>
+
+<c:if test="${not empty errorMsg }">
+  <p>${errorMsg}</p>
+</c:if>
+<c:forEach var="mutter" items="${mutterList}">
+  <p><c:out value="${mutter.userName}" />:<c:out value="${mutter.text}" /></p>
+</c:forEach>
+
+
 </body>
 </html>
